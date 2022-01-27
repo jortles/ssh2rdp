@@ -24,26 +24,6 @@ namespace ssh2rdp
             InitializeComponent();
             sshDisBtn.Visibility = Visibility.Hidden;
         }
-
-        public void Window_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
-        public void MinBtn_Click(object sender, RoutedEventArgs e)
-
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        public void CloseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         public static int GetRandomUnusedPort()
         {
             var listener = new TcpListener(IPAddress.Any, 0);
@@ -92,7 +72,9 @@ namespace ssh2rdp
                         List<secureShell> myShell = new List<secureShell>();
                         if (sshclient.IsConnected)
                         {
-                            myShell.Add(new secureShell() { host = sshclient.ConnectionInfo.Host, remote = rhost.Text, username = sshclient.ConnectionInfo.Username, lPort = (int)newPort });
+                            {
+                                myShell.Add(new secureShell() { host = sshclient.ConnectionInfo.Host, remote = rhost.Text, username = sshclient.ConnectionInfo.Username, lPort = (int)newPort });
+                            }
                         }
 
                         listViewShell.ItemsSource = myShell;

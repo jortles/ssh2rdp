@@ -10,14 +10,9 @@
         Height="475" 
         Width="685"
         Background="SlateGray"
-        ResizeMode="CanMinimize" 
-        AllowsTransparency="True"
-        MouseMove="Window_MouseMove"
-        WindowStyle="None">
+        ResizeMode="CanMinimize">
 
     <Grid>
-        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Style="{StaticResource CloseButton}" Click="CloseBtn_Click" Width="42"/>
-        <Button Content="-" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,57,0" Style="{StaticResource MinButton}" Click="MinBtn_Click" Width="40"/>
         <TextBlock HorizontalAlignment="Center" Height="39" Margin="0,5,0,0" TextWrapping="Wrap" Text="SSH-2-RDP TUNNEL" VerticalAlignment="Top" Width="228" FontSize="22" FontWeight="Bold" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Height="25" Margin="295,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" RenderTransformOrigin="1.087,2.648">
                 <Label Content="{x:Static system:Environment.MachineName}" Foreground="White" FontWeight="Bold" RenderTransformOrigin="0.317,0.532" Width="98"></Label>
@@ -36,8 +31,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Username" Width="100" DisplayMemberBinding="{Binding username}"/>
-                    <GridViewColumn Header="Host" Width="100" DisplayMemberBinding="{Binding host}"/>
-                    <GridViewColumn Header="Remote" Width="120" DisplayMemberBinding="{Binding remote}"/>
+                    <GridViewColumn Header="Tunnel Host" Width="100" DisplayMemberBinding="{Binding host}"/>
+                    <GridViewColumn Header="Remote Host" Width="120" DisplayMemberBinding="{Binding remote}"/>
                     <GridViewColumn Header="LPort" Width="100" DisplayMemberBinding="{Binding lPort}"/>
                 </GridView>
             </ListView.View>

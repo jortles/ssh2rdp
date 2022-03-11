@@ -9,6 +9,7 @@
         Title="ssh2rdp" 
         Height="475" 
         Width="685"
+        WindowStartupLocation="CenterScreen"
         Background="SlateGray"
         ResizeMode="CanMinimize">
 

@@ -47,7 +47,7 @@ namespace ssh2rdp
                 var authMethod = new List<AuthenticationMethod>();
                 authMethod.Add(new PasswordAuthenticationMethod(user.Text, pass.Password));
 
-                ConnectionInfo sshConnInfo = new ConnectionInfo("", 22, user.Text, authMethod.ToArray());
+                ConnectionInfo sshConnInfo = new ConnectionInfo("Enter-Host", 22, user.Text, authMethod.ToArray());
 
                 sshclient = new SshClient(sshConnInfo);
                 var port = new ForwardedPortLocal("127.0.0.1", newPort, rhost.Text, 3389);
@@ -69,15 +69,8 @@ namespace ssh2rdp
 
                         port.Start();
 
-                        List<secureShell> myShell = new List<secureShell>();
-                        if (sshclient.IsConnected)
-                        {
-                            {
-                                myShell.Add(new secureShell() { host = sshclient.ConnectionInfo.Host, remote = rhost.Text, username = sshclient.ConnectionInfo.Username, lPort = (int)newPort });
-                            }
-                        }
+                        listViewShell.Items.Add(new secureShell() { host = sshclient.ConnectionInfo.Host, remote = rhost.Text, username = sshclient.ConnectionInfo.Username, lPort = (int)newPort });
 
-                        listViewShell.ItemsSource = myShell;
 
                         Thread.Sleep(1000);
 
